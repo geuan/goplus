@@ -118,7 +118,7 @@ func SaveData(data *BookList) error   {
 	defer csvFile.Close()
 	w := csv.NewWriter(csvFile)//创建一个新的写入文件流
 	header := []string{"book_id", "book_name"}
-	export := [][]string{   // 值得学习，二维切片
+	export := [][]string{   // 二维切片，学习点
 		header,
 	}
 	for _,d:=range data.Data{
@@ -132,7 +132,7 @@ func SaveData(data *BookList) error   {
 	if err!=nil{
 		return err
 	}
-	w.Flush()  // 刷新，不刷新是无法写入的
+	w.Flush()  // 刷新，不刷新无法写入到文件
 	return nil
 }
 
